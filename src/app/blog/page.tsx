@@ -1,36 +1,54 @@
-import { Metadata } from "next";
+"use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import styles from "./blog.module.scss";
+import { PostSearch } from "@/components/post-search/PostSearch";
+import { getAllPosts } from "@/services/getPost";
+import { Post } from "@/types/types";
 
-async function getData() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    next: {
-      revalidate: 60
-    }
-  });
+const Blog = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  return response.json();
-}
+  useEffect(() => {
+    getAllPosts()
+      .then((result) => {
+        setPosts(result);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
-export const metadata: Metadata = {
-  title: "Blog | Test Next App",
-};
-
-const Blog = async () => {
-  const posts = await getData();
+  const onSearch = (posts: Post[]) => {
+    setPosts(posts);
+  };
 
   return (
     <>
       <h2 className="text-xl font-bold mb-4">Blog</h2>
-      <Link href={"/blog/1"}>Post link</Link>
-      <ul className={styles.posts}>
-        {posts.map((post: any) => (
-          <li key={post.id} className="shadow text-xs">
-            <Link href={`/blog/${post.id}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <PostSearch onSearch={onSearch} setLoading={setLoading} />
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          {!posts.length && <div>No posts</div>}
+          <ul className={styles.posts}>
+            {posts.map((post: any) => (
+              <li key={post.id} className="shadow p-4">
+                <Link
+                  className={"text-base mb-2 font-bold"}
+                  href={`/blog/${post.id}`}
+                >
+                  {post.title}
+                </Link>
+                <p className={"text-xs text-gray-500"}>{post.body}</p>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </>
   );
 };
