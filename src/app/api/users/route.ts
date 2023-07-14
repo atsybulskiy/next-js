@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { users } from "@/app/api/users/Users";
+import { users } from "@app/api/users/Users";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -19,7 +19,7 @@ export async function GET(req: Request) {
   return NextResponse.json(currentUsers);
 }
 
-export async function POST(req: Request, { params }: { params: { id: string } }) {
+export async function POST(req: Request) {
   const body = await req.json();
 
   console.log("\x1b[35m%s\x1b[0m", body);

@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { headers, cookies } from 'next/headers';
 
-import { users } from "@/app/api/users/Users";
-import { User } from "@/types/types";
+import { users } from "@app/api/users/Users";
+import { User } from "@types";
 
 export async function GET(
   req: Request,

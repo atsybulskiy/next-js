@@ -5,9 +5,9 @@ import {
   useMemo,
   useState,
 } from "react";
-import { getPostsBySearch } from "@/services/getPost";
-import { Post } from "@/types/types";
-import { debounce } from "@/helpers/utils";
+import { getPostsBySearch } from "@services/getPost";
+import { Post } from "@types";
+import { debounce } from "@helpers/utils";
 
 type Props = {
   onSearch(value: Post[]): void;

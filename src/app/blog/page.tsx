@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import styles from "./blog.module.scss";
-import { PostSearch } from "@/components/post-search/PostSearch";
-import { getAllPosts } from "@/services/getPost";
-import { Post } from "@/types/types";
+import { PostSearch } from "@components/post-search/PostSearch";
+import { getAllPosts } from "@services/getPost";
+import { Post } from "@types";
 
 const Blog = () => {
   const [posts, setPosts] = useState<Post[]>([]);

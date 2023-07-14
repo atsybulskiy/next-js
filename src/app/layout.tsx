@@ -1,7 +1,10 @@
-import "./globals.scss";
-import { Inter } from "next/font/google";
-import { Header } from "@/components/Header";
 import { Metadata } from "next";
+import { Inter } from "next/font/google";
+
+import "@styles/globals.scss";
+
+import { Nav } from "@components/Nav";
+import { Provider } from "@components/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,21 +13,19 @@ export const metadata: Metadata = {
   description: "Test Next App - new",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className={`${inter.className} flex flex-col`}>
-      <div className="h-screen flex flex-col">
-        <Header />
-        <main className="flex flex-col flex-1 px-4 py-5 max-w-6xl m-auto w-full overflow-auto">
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
+  <html lang="en">
+    <body className={inter.className}>
+      <Provider>
+        <div className="main">
+          <div className="gradient" />
+        </div>
+        <main className="app">
+          <Nav />
           {children}
         </main>
-      </div>
-      </body>
-    </html>
-  );
-}
+      </Provider>
+    </body>
+  </html>
+);
+export default RootLayout;
