@@ -7,7 +7,9 @@
     "dev-turbo": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "@types/node": "20.3.3",
@@ -32,5 +34,11 @@
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^3.0.0",
     "sass": "^1.63.6"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "endOfLine": "auto"
   }
 }

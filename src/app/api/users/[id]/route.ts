@@ -1,15 +1,15 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 import { headers, cookies } from 'next/headers';
 
-import { users } from "@app/api/users/Users";
-import { User } from "@types";
+import { users } from '@app/api/users/Users';
+import { User } from '@types';
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: { id: string } }
 ) {
   const id = params.id;
-  console.log("\x1b[33m%s\x1b[0m", id);
+  console.log('\x1b[33m%s\x1b[0m', id);
   const headerList = headers();
   const userAgent = headerList.get('user-agent');
 
@@ -25,5 +25,5 @@ export async function GET(
       }) || null;
   }
 
-  return NextResponse.json({currentUser, userAgent, cookie});
+  return NextResponse.json({ currentUser, userAgent, cookie });
 }

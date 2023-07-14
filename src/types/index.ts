@@ -28,3 +28,9 @@ export type User = {
     bs: string;
   };
 };
+
+export type Prompt = {
+  creator: User;
+  prompt: string;
+  tag: string;
+};

@@ -1,11 +1,11 @@
-"use client";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+'use client';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
-import styles from "./blog.module.scss";
-import { PostSearch } from "@components/post-search/PostSearch";
-import { getAllPosts } from "@services/getPost";
-import { Post } from "@types";
+import styles from './blog.module.scss';
+import { PostSearch } from '@components/post-search/PostSearch';
+import { getAllPosts } from '@services/getPost';
+import { Post } from '@types';
 
 const Blog = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -38,12 +38,12 @@ const Blog = () => {
             {posts.map((post: any) => (
               <li key={post.id} className="shadow p-4">
                 <Link
-                  className={"text-base mb-2 font-bold"}
+                  className={'text-base mb-2 font-bold'}
                   href={`/blog/${post.id}`}
                 >
                   {post.title}
                 </Link>
-                <p className={"text-xs text-gray-500"}>{post.body}</p>
+                <p className={'text-xs text-gray-500'}>{post.body}</p>
               </li>
             ))}
           </ul>

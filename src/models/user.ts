@@ -1,4 +1,4 @@
-import {Document, Model, model, models, Schema} from "mongoose";
+import { Document, Model, model, models, Schema } from 'mongoose';
 
 interface IUser extends Document {
   id: string;
@@ -10,16 +10,16 @@ interface IUser extends Document {
 const UserSchema: Schema = new Schema({
   email: {
     type: String,
-    unique: [true, "mail already exist"],
-    required: [true, "Email is required!"]
+    unique: [true, 'mail already exist'],
+    required: [true, 'Email is required!']
   },
   username: {
     type: String,
-    required: [true, "Username is required!"],
+    required: [true, 'Username is required!'],
     match: [
       /^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/,
-      "Username invalid, it should contain 8-20 alphanumeric letters and be unique!",
-    ],
+      'Username invalid, it should contain 8-20 alphanumeric letters and be unique!'
+    ]
   },
   image: {
     type: String
@@ -29,6 +29,6 @@ const UserSchema: Schema = new Schema({
   }
 });
 
-const User = models.User as Model<IUser> || model<IUser>("User", UserSchema);
+const User = (models.User as Model<IUser>) || model<IUser>('User', UserSchema);
 
 export default User;

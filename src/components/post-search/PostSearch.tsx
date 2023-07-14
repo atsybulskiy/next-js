@@ -3,11 +3,11 @@ import {
   FormEventHandler,
   useCallback,
   useMemo,
-  useState,
-} from "react";
-import { getPostsBySearch } from "@services/getPost";
-import { Post } from "@types";
-import { debounce } from "@helpers/utils";
+  useState
+} from 'react';
+import { getPostsBySearch } from '@services/getPost';
+import { Post } from '@types';
+import { debounce } from '@helpers/utils';
 
 type Props = {
   onSearch(value: Post[]): void;
@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const PostSearch = ({ onSearch, setLoading }: Props) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
@@ -23,16 +23,19 @@ export const PostSearch = ({ onSearch, setLoading }: Props) => {
     onSearch(posts);
   };
 
-  const changeHandler = useCallback(async (searchString: string) => {
-    try {
-      setLoading(true);
-      const posts = await getPostsBySearch(searchString);
-      setLoading(false)
-      onSearch(posts);
-    } catch (e) {
-      console.log('%c⇒ e', 'color: #FF5370', e);
-    }
-  }, [onSearch, setLoading]);
+  const changeHandler = useCallback(
+    async (searchString: string) => {
+      try {
+        setLoading(true);
+        const posts = await getPostsBySearch(searchString);
+        setLoading(false);
+        onSearch(posts);
+      } catch (e) {
+        console.log('%c⇒ e', 'color: #FF5370', e);
+      }
+    },
+    [onSearch, setLoading]
+  );
 
   const debouncedSearch = useMemo(() => {
     return debounce(changeHandler, 500);
@@ -48,8 +51,8 @@ export const PostSearch = ({ onSearch, setLoading }: Props) => {
     <div className="flex items-center justify-end mb-4">
       <form onSubmit={handleSubmit}>
         <input
-          type={"search"}
-          placeholder={"search"}
+          type={'search'}
+          placeholder={'search'}
           value={search}
           onChange={handleChange}
           className="py-2 px-4 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none"

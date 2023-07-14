@@ -1,16 +1,16 @@
-import { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 
-import "@styles/globals.scss";
+import '@styles/globals.scss';
 
-import { Nav } from "@components/Nav";
-import { Provider } from "@components/Provider";
+import { Nav } from '@components/Nav';
+import { Provider } from '@components/Provider';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Test Next App",
-  description: "Test Next App - new",
+  title: 'Test Next App',
+  description: 'Test Next App - new'
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (

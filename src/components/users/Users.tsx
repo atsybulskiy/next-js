@@ -1,10 +1,10 @@
-import { User } from "@types";
+import { User } from '@types';
 
 async function getUsers() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users", {
+  const response = await fetch('https://jsonplaceholder.typicode.com/users', {
     next: {
-      revalidate: 60,
-    },
+      revalidate: 60
+    }
   });
 
   return response.json();
