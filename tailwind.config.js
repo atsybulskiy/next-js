@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         chewy: ['Chewy', 'sans-serif'],
         inter: ['Inter', 'sans-serif']
+      },
+      colors: {
+        'primary-orange': '#FF5722'
       }
     }
   },

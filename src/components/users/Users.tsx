@@ -1,4 +1,4 @@
-import { User } from '@types';
+import { IUser } from '@models/user';
 
 async function getUsers() {
   const response = await fetch('https://jsonplaceholder.typicode.com/users', {
@@ -11,7 +11,7 @@ async function getUsers() {
 }
 
 export const Users = async () => {
-  const users: User[] = await getUsers();
+  const users: IUser[] = await getUsers();
 
   return (
     <div>
@@ -20,11 +20,8 @@ export const Users = async () => {
           <h2 className="text-lg font-semibold text-gray-900">Users</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
             {users.map((user) => (
-              <div
-                key={user.id}
-                className="flex items-center space-x-4 p-2 md:px-5 md:py-3 bg-white shadow rounded-lg"
-              >
-                <div className="font-semibold text-lg">{user.name}</div>
+              <div key={user.id} className="flex items-center space-x-4 p-2 md:px-5 md:py-3 bg-white shadow rounded-lg">
+                <div className="font-semibold text-lg">{user.username}</div>
               </div>
             ))}
           </div>

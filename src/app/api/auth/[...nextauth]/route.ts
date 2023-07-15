@@ -13,10 +13,12 @@ const handler = NextAuth({
   ],
   callbacks: {
     async session({ session }) {
-      // const sessionUser = await User.findOne({
-      //   email: session.user?.email
-      // });
-      // session.user.id = sessionUser?._id.toString();
+      const sessionUser = await User.findOne({
+        email: session.user?.email
+      });
+      if (session.user) {
+        session.user.id = sessionUser?._id.toString();
+      }
       return session;
     },
     async signIn({ profile }) {
@@ -33,7 +35,6 @@ const handler = NextAuth({
           await User.create({
             email: profile?.email,
             username: profile?.name?.replace(' ', '').toLowerCase(),
-            // @ts-ignore
             image: profile?.picture
           });
         }
