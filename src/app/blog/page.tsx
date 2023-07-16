@@ -37,10 +37,7 @@ const Blog = () => {
           <ul className={styles.posts}>
             {posts.map((post: any) => (
               <li key={post.id} className="shadow p-4">
-                <Link
-                  className={'text-base mb-2 font-bold'}
-                  href={`/blog/${post.id}`}
-                >
+                <Link className={'text-base mb-2 font-bold'} href={`/blog/${post.id}`}>
                   {post.title}
                 </Link>
                 <p className={'text-xs text-gray-500'}>{post.body}</p>

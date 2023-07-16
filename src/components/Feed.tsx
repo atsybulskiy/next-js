@@ -29,10 +29,7 @@ export const Feed = () => {
   const filterPrompts = (search: string) => {
     const regex = new RegExp(search, 'i'); // 'i' flag for case-insensitive search
     return allPosts.filter(
-      (item) =>
-        regex.test(item.creator.username) ||
-        regex.test(item.tag) ||
-        regex.test(item.prompt)
+      (item) => regex.test(item.creator.username) || regex.test(item.tag) || regex.test(item.prompt)
     );
   };
 
@@ -74,10 +71,7 @@ export const Feed = () => {
 
       {/* All Prompts */}
       {/*{searchText ? (*/}
-      <PromptCardList
-        data={searchText ? searchedResults : allPosts}
-        handleTagClick={handleTagClick}
-      />
+      <PromptCardList data={searchText ? searchedResults : allPosts} handleTagClick={handleTagClick} />
       {/*) : (*/}
       {/*  <PromptCardList data={allPosts} handleTagClick={handleTagClick} />*/}
       {/*)}*/}

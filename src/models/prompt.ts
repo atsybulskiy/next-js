@@ -16,7 +16,6 @@ const PromptSchema = new Schema<Prompt>({
   }
 });
 
-const Prompt =
-  (models.Prompt as Model<Prompt>) || model<Prompt>('Prompt', PromptSchema);
+const Prompt = (models.Prompt as Model<Prompt>) || model<Prompt>('Prompt', PromptSchema);
 
 export default Prompt;

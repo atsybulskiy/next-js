@@ -1,10 +1,4 @@
-import {
-  ChangeEventHandler,
-  FormEventHandler,
-  useCallback,
-  useMemo,
-  useState
-} from 'react';
+import { ChangeEventHandler, FormEventHandler, useCallback, useMemo, useState } from 'react';
 import { getPostsBySearch } from '@services/getPost';
 import { Post } from '@types';
 import { debounce } from '@helpers/utils';
@@ -57,9 +51,7 @@ export const PostSearch = ({ onSearch, setLoading }: Props) => {
           onChange={handleChange}
           className="py-2 px-4 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none"
         />
-        <button className="ml-2 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-md">
-          Search
-        </button>
+        <button className="ml-2 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-md">Search</button>
       </form>
     </div>
   );

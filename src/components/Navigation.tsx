@@ -23,10 +23,7 @@ export const Navigation = ({ navLinks }: Props) => {
           return (
             <Link
               key={link.label}
-              className={classNames(
-                isActive ? 'text-blue-400' : 'text-gray-50',
-                'text-sm font-semibold leading-6'
-              )}
+              className={classNames(isActive ? 'text-blue-400' : 'text-gray-50', 'text-sm font-semibold leading-6')}
               href={link.href}
             >
               {link.label}

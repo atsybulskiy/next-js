@@ -11,9 +11,7 @@ export async function GET(req: Request) {
   let currentUsers = users;
 
   if (query) {
-    currentUsers = users.filter((user) =>
-      user.name.toLowerCase().includes(query.toLowerCase())
-    );
+    currentUsers = users.filter((user) => user.name.toLowerCase().includes(query.toLowerCase()));
   }
 
   return NextResponse.json(currentUsers);

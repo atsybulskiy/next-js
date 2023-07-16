@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Prompt } from '@types';
-import {ChangeEventHandler, FormEventHandler} from 'react';
+import { ChangeEventHandler, FormEventHandler } from 'react';
 
 type Props = {
   type: 'Create' | 'Edit';
@@ -10,13 +10,7 @@ type Props = {
   handleSubmit: FormEventHandler<HTMLFormElement>;
 };
 
-export const Form = ({
-  type,
-  post,
-  setPost,
-  submitting,
-  handleSubmit
-}: Props) => {
+export const Form = ({ type, post, setPost, submitting, handleSubmit }: Props) => {
   const handleChangePost: ChangeEventHandler<HTMLTextAreaElement> = (event) => {
     setPost({ ...post, prompt: event.target.value });
   };
@@ -27,18 +21,12 @@ export const Form = ({
         <span className="blue_gradient">{type} Post</span>
       </h1>
       <p className="desc text-left max-w-md">
-        {type} and share amazing prompts with the world, and let your
-        imagination run wild with any AI-powered platform
+        {type} and share amazing prompts with the world, and let your imagination run wild with any AI-powered platform
       </p>
 
-      <form
-        onSubmit={handleSubmit}
-        className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism"
-      >
+      <form onSubmit={handleSubmit} className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism">
         <label>
-          <span className="font-satoshi font-semibold text-base text-gray-700">
-            Your AI Prompt
-          </span>
+          <span className="font-satoshi font-semibold text-base text-gray-700">Your AI Prompt</span>
 
           <textarea
             value={post?.prompt}
@@ -51,10 +39,7 @@ export const Form = ({
 
         <label>
           <span className="font-satoshi font-semibold text-base text-gray-700">
-            Field of Prompt{' '}
-            <span className="font-normal">
-              (#product, #webdevelopment, #idea, etc.)
-            </span>
+            Field of Prompt <span className="font-normal">(#product, #webdevelopment, #idea, etc.)</span>
           </span>
           <input
             value={post.tag}
