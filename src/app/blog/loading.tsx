@@ -1,5 +1,5 @@
 const LoadingPosts = () => {
-  return <>Loading...</>
-}
+  return <>Loading...</>;
+};
 
 export default LoadingPosts;

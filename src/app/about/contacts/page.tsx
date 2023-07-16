@@ -1,5 +1,5 @@
-import {UsersWrapper} from '@components/users/UsersWrapper';
-import {Users} from '@components/users/Users';
+import { UsersWrapper } from '@components/users/UsersWrapper';
+import { Users } from '@components/users/Users';
 
 const Contacts = () => {
   return (

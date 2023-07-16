@@ -1,5 +1,5 @@
-'use client'
-import { useEffect, useState } from "react";
+'use client';
+import { useEffect, useState } from 'react';
 
 export const UsersWrapper = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
@@ -14,9 +14,5 @@ export const UsersWrapper = ({ children }: { children: React.ReactNode }) => {
     };
   }, []);
 
-  return (
-    <div>
-      {loading ? <>Loading...</> : children}
-    </div>
-  );
+  return <div>{loading ? <>Loading...</> : children}</div>;
 };

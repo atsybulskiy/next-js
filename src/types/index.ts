@@ -1,3 +1,5 @@
+import { IUser } from '@models/user';
+
 export type Post = {
   id: number;
   title: string;
@@ -5,8 +7,9 @@ export type Post = {
   userId: number;
 };
 
-export type User = {
+export type User1 = {
   id: number;
+  _id: string;
   name: string;
   username: string;
   email: string;
@@ -28,3 +31,10 @@ export type User = {
     bs: string;
   };
 };
+
+export interface Prompt {
+  creator: IUser;
+  prompt: string;
+  tag: string;
+  _id: string;
+}
